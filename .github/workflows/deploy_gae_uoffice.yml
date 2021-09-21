@@ -27,7 +27,11 @@ jobs:
         uses: ikuanyshbekov/app-yaml-env-compiler@v1.0
         env:
           LINE_NOTIFY_TOKEN: ${{ secrets.LINE_NOTIFY_TOKEN }}
-          GCP_SERVICE_ACCOUNT_INFO: ${{ secrets.GCP_SA_KEY }}
+          GCP_SERVICE_ACCOUNT_INFO: ${{ secrets.GCP_SA_KEY }}          
+          SPREADSHEET_URL: 'https://docs.google.com/spreadsheets/d/1hqTdgDqiisX-MoHjRmPxgrax7ocD8g70SPAZBzJORe0'
+          SPREADSHEET_ID: '1hqTdgDqiisX-MoHjRmPxgrax7ocD8g70SPAZBzJORe0'
+          SPREADSHEET_RANGE_NAME: 'FLH-Office!B1'
+          LINE_NOTIFY_API_URL: 'https://notify-api.line.me/api/notify'
 
       - name: Deploy to App Engine
         uses: google-github-actions/deploy-appengine@v0.2.0
