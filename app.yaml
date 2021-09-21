@@ -40,6 +40,6 @@ env_variables:
   SPREADSHEET_URL: 'https://docs.google.com/spreadsheets/d/1hqTdgDqiisX-MoHjRmPxgrax7ocD8g70SPAZBzJORe0'
   SPREADSHEET_ID: '1hqTdgDqiisX-MoHjRmPxgrax7ocD8g70SPAZBzJORe0'
   SPREADSHEET_RANGE_NAME: 'FLH-Office!B1'
-  LINE_NOTIFY_TOKEN:
+  LINE_NOTIFY_TOKEN: $LINE_NOTIFY_TOKEN
   LINE_NOTIFY_API_URL: 'https://notify-api.line.me/api/notify'
-  GCP_SERVICE_ACCOUNT_INFO:
+  GCP_SERVICE_ACCOUNT_INFO: $GCP_SERVICE_ACCOUNT_INFO
