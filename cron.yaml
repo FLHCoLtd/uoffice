@@ -1,11 +1,6 @@
 cron:
-#- description: "office weekday routine task remind job"
-#  url: /office_2f_routine_remind
-##  target: beta
-#  schedule: every 8 hours from 09:30 to 18:00
-#  timezone: Asia/Taipei
-#- description: "rd monday briefing remind jos"
-#  url: /rd_monday_briefing_remind
-##  target: beta
-#  schedule: every monday 09:30
-#  timezone: Asia/Taipei
+  - description: "notify member/team on duty for clean office"
+    url: /notify_uof_clean_duty
+    target: uoffice
+    schedule: every 7 hours from 09:30 to 18:00
+    timezone: Asia/Taipei
