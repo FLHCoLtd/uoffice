@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from uoffice.apis import NotifyUofCleanDutyHandler
 from uoffice.apis import ListEnvVarsHandler
 from uoffice.apis import EchoHandler
+from uoffice.apis import QueryOnDutyHandler
 
 
 logger = logging.getLogger(__name__)
@@ -18,5 +19,5 @@ urlpatterns = [
     url(r'list_env_vars', csrf_exempt(ListEnvVarsHandler.as_view()),
         name=ListEnvVarsHandler.ID),
     url(r'^echo$', csrf_exempt(EchoHandler.as_view()), name=EchoHandler.ID),
-    url(r'^$', csrf_exempt(EchoHandler.as_view()))
+    url(r'^$', csrf_exempt(QueryOnDutyHandler.as_view()), name=QueryOnDutyHandler.ID)
 ]
