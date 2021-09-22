@@ -21,6 +21,6 @@ https://console.cloud.google.com/appengine/taskqueues/cron?project=groddkeeper
 
 
 ## 說明 
-開發策略：分支開發，主線發布
-引用元件：主線發布時，透過`app-yaml-env-compiler` gh-action 動態設定 GAE `app.yaml` 內的 `env_variables` 參數
-其他服務：Cloud Scheduler for GAE Cron
+- 開發策略：分支開發，主線發布
+- 引用元件：主線發布時，透過`app-yaml-env-compiler` gh-action 動態設定 GAE `app.yaml` 內的 `env_variables` 參數
+- 其他服務：Cloud Scheduler for GAE Cron
