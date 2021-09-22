@@ -1,6 +1,11 @@
 # uoffice hosting on GCP groddkeeper project uoffice service
 辦公室值日生通知系統
+
 https://uoffice-dot-groddkeeper.wl.r.appspot.com
+
+## 值日生排班用Google Sheet
+
+https://docs.google.com/spreadsheets/d/1hqTdgDqiisX-MoHjRmPxgrax7ocD8g70SPAZBzJORe0
 
 ## GAE service deploy command
 $ gcloud app deploy app.yaml --project groddkeeper
