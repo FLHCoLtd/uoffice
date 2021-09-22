@@ -13,5 +13,3 @@ https://console.cloud.google.com/appengine/taskqueues/cron?project=groddkeeper
 
 ## uoffice service architecture
 ![uoffice](https://github.com/FLHCoLtd/uoffice/blob/main/uoffice.jpg?raw=true|width=640)
-
-![uoffice](https://github.com/FLHCoLtd/uoffice/blob/main/uoffice.jpg?raw=true) {width=50%}
