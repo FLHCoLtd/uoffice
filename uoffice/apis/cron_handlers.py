@@ -12,6 +12,8 @@ from django.http import JsonResponse
 from google.oauth2 import service_account
 
 logger = logging.getLogger()
+
+
 # dotenv.load_dotenv()
 
 
@@ -56,10 +58,9 @@ class NotifyUofCleanDutyHandler(View):
             logger.warning(f'No duty for today {date.today()} office clean job.')
             return JsonResponse({'response': 'OK'})
 
-        msg = f'[測試]本日[{date.today()}]二樓辦公室值日生：\n{duty}\n\n查詢輪值表：{sheet_url}\n'
-        if not self.send_line_push_msg(msg):
-            logger.error('send_line_push_msg api fail')
-        return JsonResponse({'notification': f'{msg}'})
+        msg = f'[Beta]本日[{date.today()}]辦公室值日生：\n{duty}\n\n查詢輪值表：{self.sheet_url}\n'
+        result = self.send_line_push_msg(msg) is not None
+        return JsonResponse({'notify': f'{msg}', 'success': result})
 
     def send_line_push_msg(self, msg):
         line_token = os.getenv('LINE_NOTIFY_TOKEN')
@@ -67,13 +68,12 @@ class NotifyUofCleanDutyHandler(View):
         payload = {'message': msg}
         headers = {'Authorization': f'Bearer {line_token}'}
         logger.debug(f'send_line_push_msg payload {payload}')
-        # r = requests.post(self.line_api_url, headers=headers, data=payload)
-        # if r.status_code == requests.codes.ok:
-        #     return payload
-        # else:
-        #     logger.warning(f'Line notify api post error code {r.status_code}\n{r.content}')
-        #     return None
-        return payload
+        r = requests.post(line_api_url, headers=headers, data=payload)
+        if r.status_code == requests.codes.ok:
+            return payload
+        else:
+            logger.warning(f'Line notify api post error, {r.status_code}, {r.content}')
+            return None
 
 
 class QueryOnDutyHandler(View):
