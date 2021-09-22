@@ -83,7 +83,7 @@ class QueryOnDutyHandler(View):
     def get(self, _):
         result = get_today_on_duty_name_n_team()
         logger.debug(f'query result {result}')
-        return HttpResponse({f'onDuty: {result}'})
+        return HttpResponse(f'onDuty: {result}')
 
 
 class ListEnvVarsHandler(View):
