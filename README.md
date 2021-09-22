@@ -10,3 +10,7 @@ $ gcloud app deploy cron.yaml
 
 ## Visit the Cloud Platform Console Task Queues page to view your queues and cron jobs.
 https://console.cloud.google.com/appengine/taskqueues/cron?project=groddkeeper
+
+## uoffice service architecture
+
+![uoffice](https://github.com/FLHCoLtd/uoffice/blob/main/uoffice.jpg?raw=true | width=100)
