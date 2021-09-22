@@ -59,7 +59,7 @@ class NotifyUofCleanDutyHandler(View):
             logger.warning(f'No duty for today {date.today()} office clean job.')
             return JsonResponse({'response': 'OK'})
 
-        msg = f'[Beta]本日[{date.today()}]辦公室值日生：\n{duty}\n\n查詢輪值表：{self.sheet_url}\n'
+        msg = f'本日[{date.today()}]辦公室值日生：\n{duty}\n\n查詢輪值表：{self.sheet_url}\n'
         result = self.send_line_push_msg(msg) is not None
         return JsonResponse({'notify': f'{msg}', 'success': result})
 
