@@ -9,6 +9,7 @@ import requests
 from datetime import date
 from django.views.generic import View
 from django.http import JsonResponse
+from django.http import HttpResponse
 from google.oauth2 import service_account
 
 logger = logging.getLogger()
@@ -82,7 +83,7 @@ class QueryOnDutyHandler(View):
     def get(self, _):
         result = get_today_on_duty_name_n_team()
         logger.debug(f'query result {result}')
-        return JsonResponse({'onDuty': f'{result}'})
+        return HttpResponse({f'onDuty: {result}'})
 
 
 class ListEnvVarsHandler(View):
