@@ -11,7 +11,7 @@ https://docs.google.com/spreadsheets/d/1hqTdgDqiisX-MoHjRmPxgrax7ocD8g70SPAZBzJO
 $ gcloud app deploy app.yaml --project groddkeeper
 
 ## GAE cron deploy command
-$ gcloud app deploy cron.yaml
+$ gcloud app deploy cron.yaml --project groddkeeper
 
 ## Visit the Cloud Platform Console Task Queues page to view your queues and cron jobs.
 https://console.cloud.google.com/appengine/taskqueues/cron?project=groddkeeper
