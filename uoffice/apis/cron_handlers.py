@@ -60,7 +60,8 @@ class NotifyUofCleanDutyHandler(View):
             return JsonResponse({'response': 'OK'})
 
         msg = f'本日[{date.today()}]辦公室值日生：\n{duty}\n\n查詢輪值表：{self.sheet_url}\n'
-        result = self.send_line_push_msg(msg) is not None
+        # result = self.send_line_push_msg(msg) is not None
+        result = self.send_slack_message(msg) is not None
         return JsonResponse({'notify': f'{msg}', 'success': result})
 
     def send_line_push_msg(self, msg):
@@ -74,6 +75,18 @@ class NotifyUofCleanDutyHandler(View):
             return payload
         else:
             logger.warning(f'Line notify api post error, {r.status_code}, {r.content}')
+            return None
+
+    def send_slack_message(self, msg):
+        url = os.getenv('SLACK_CHANNEL_NOTIFY_WEBHOOK')
+        headers = {"Content-type": "application/json"}
+        data = {"text": msg}
+        response = requests.post(url, headers=headers, data=json.dumps(data))
+
+        if response.status_code == 200:
+            return data
+        else:
+            logger.warning(f"Failed to send message. Status code: {response.status_code}")
             return None
 
 
