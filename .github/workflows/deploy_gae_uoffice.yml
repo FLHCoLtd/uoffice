@@ -32,7 +32,7 @@ jobs:
           SPREADSHEET_ID: '1hqTdgDqiisX-MoHjRmPxgrax7ocD8g70SPAZBzJORe0'
           SPREADSHEET_RANGE_NAME: 'FLH-Office!B1'
           LINE_NOTIFY_API_URL: 'https://notify-api.line.me/api/notify'
-          SLACK_CHANNEL_NOTIFY_WEBHOOK: ${{ secrets.$SLACK_CHANNEL_NOTIFY_WEBHOOK }}
+          SLACK_CHANNEL_NOTIFY_WEBHOOK: ${{ secrets.SLACK_CHANNEL_NOTIFY_WEBHOOK }}
 
       - name: Deploy to App Engine
         uses: google-github-actions/deploy-appengine@v0.2.0
